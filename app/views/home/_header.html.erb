@@ -64,6 +64,7 @@
 
 									<% if user_signed_in? %>
 										<li><%= link_to 'BACK OFFICE', rails_admin_path %></li>
+										<li><%= link_to 'INTERVENTION', intervention_path %></li>
 										<li><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete  %></li>
 									<% else %>
 										<li><%= link_to 'SIGN IN', new_user_session_path%>
