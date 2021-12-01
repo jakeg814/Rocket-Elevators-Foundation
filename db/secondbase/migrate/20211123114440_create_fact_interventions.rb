@@ -1,4 +1,4 @@
-class CreateFactIntervention < ActiveRecord::Migration[5.2]
+class CreateFactInterventions < ActiveRecord::Migration[5.2]
   def change
     create_table :fact_intervention do |t|
       t.integer :employee_id, null: false
