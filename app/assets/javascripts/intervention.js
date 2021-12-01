@@ -4,22 +4,22 @@ var _hash = window.location.hash;
 // Classes
 $(".building-class, .battery-class, .column-class, .elevator-class").hide();
 
-// hide options 
-$("select#building option").remove();
-$("select#battery option").remove();
-$("select#column option").remove();
-$("select#elevator option").remove();
 // Show and hide buildings for customer X
 $("#customer").change(function() {
     var select = document.getElementById('customer');
     value = select.options[select.selectedIndex].value;
     console.log(value);
-    $("select#building option").remove();
     $.ajax({
         type:'GET',
         url:"/get_building/" + value,
         success:function(data){
           console.log(data);
+          // Clear all options from course select
+          $("select#building option").remove();
+          //put in a empty default line
+          var row = "<option value=\"" + "" + "\">" + "option" + "</option>";
+          $(row).appendTo("select#building");
+          // Fill course select
           $.each(data, function(i, j) {
             row = "<option value=\"" + j.id + "\">" + j.admin_name + "</option>";
             $(row).appendTo("select#building");
@@ -34,12 +34,17 @@ $("#building").change(function() {
     var select = document.getElementById('building');
     value = select.options[select.selectedIndex].value;
     console.log(value);
-    $("select#battery option").remove();
     $.ajax({
         type:'GET',
         url:"/get_battery/" + value,
         success:function(data){
           console.log(data);
+          // Clear all options from course select
+          $("select#battery option").remove();
+          //put in a empty default line
+          var row = "<option value=\"" + "" + "\">" + "option" + "</option>";
+          $(row).appendTo("select#battery");
+          // Fill course select
           $.each(data, function(i, j) {
             row = "<option value=\"" + j.id + "\">" + j.id + "</option>";
             $(row).appendTo("select#battery");
@@ -53,12 +58,17 @@ $("#battery").change(function() {
     var select = document.getElementById('battery');
     value = select.options[select.selectedIndex].value;
     console.log(value);
-    $("select#column option").remove();
     $.ajax({
         type:'GET',
         url:"/get_column/" + value,
         success:function(data){
           console.log(data);
+          // Clear all options from course select
+          $("select#column option").remove();
+          //put in a empty default line
+          var row = "<option value=\"" + "" + "\">" + "none" + "</option>";
+          $(row).appendTo("select#column");
+          // Fill course select
           $.each(data, function(i, j) {
             row = "<option value=\"" + j.id + "\">" + j.id + "</option>";
             $(row).appendTo("select#column");
@@ -72,12 +82,17 @@ $("#column").change(function() {
     var select = document.getElementById('column');
     value = select.options[select.selectedIndex].value;
     console.log(value);
-    $("select#elevator option").remove();
     $.ajax({
         type:'GET',
         url:"/get_elevator/" + value,
         success:function(data){
           console.log(data);
+          // Clear all options from course select
+          $("select#elevator option").remove();
+          //put in a empty default line
+          var row = "<option value=\"" + "" + "\">" + "none" + "</option>";
+          $(row).appendTo("select#elevator");
+          // Fill course select
           $.each(data, function(i, j) {
             row = "<option value=\"" + j.id + "\">" + j.id + "</option>";
             $(row).appendTo("select#elevator");
