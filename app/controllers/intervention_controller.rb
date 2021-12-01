@@ -1,74 +1,45 @@
 class InterventionController < ApplicationController
 
-  # GET /interventions or /interventions.json
-  def index
-    
-  end
+ def index
+ end
 
-  def show
+ # buildings related to a selected customer
+ def get_building
+    @buildings = Building.where("customer_id = ?", params[:id])
+    respond_to do |format|
+      form.json { render :json => @buildings }
+    end
+ end
 
-  end
-    # Method to get buildings related to a selected customer
-    def get_building
-      if params[:customer].present?
-          @buildings = Customer.find(params[:customer]).buildings
-      else
-          @buildings = Customer.all
-      end
-      if request.xhr?
-          respond_to do |format|
-              format.json {
-                  render json: {buildings: @buildings}
-              }
-          end
-      end
-  end
-
-  # Method to get batteries related to a selected building
+  # batteries related to a selected building
   def get_battery
-      if params[:building].present?
-          @batteries = Building.find(params[:building]).batteries
-      else
-          @batteries = Building.all
-      end
-      if request.xhr?
-          respond_to do |format|
-              format.json {
-                  render json: {batteries: @batteries}
-              }
-          end
-      end
+    @batteries = Battery.where(building_id, params[:id])
+    respond_to do |format|
+      form.json { render :json => @batteries }
+    end
   end
 
-  # Method to get columnns related to a selected battery
-  def get_column
-      if params[:battery].present?
-          @columns = Battery.find(params[:battery]).columns
-      else
-          @columns = Battery.all
+    # columnns related to a selected battery
+    def get_column
+      @column = Column.where(battery_id, params[:id])
+      respond_to do |format|
+        form.json { render :json => @column }
       end
-      if request.xhr?
-          respond_to do |format|
-              format.json {
-                  render json: {columns: @columns}
-              }
-          end
-      end
-  end
+    end
 
-  # Method to get elevators related to a selected column
+  # elevators related to a selected column
   def get_elevator
-      if params[:column].present?
-          @elevators = Column.find(params[:column]).elevators
-      else
-          @elevators = Column.all
-      end
-      if request.xhr?
-          respond_to do |format|
-              format.json {
-                  render json: {elevators: @elevators}
-              }
-          end
-      end
+    @elevators = Elevator.where(column_id, params[:id])
+    respond_to do |format|
+      form.json { render :json => @elevators }
+    end
+  end
+
+   # employee
+   def get_employee
+    @employee = Employee.all
+    respond_to do |format|
+      form.json { render :json => @employee }
+    end
   end
 end

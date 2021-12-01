@@ -83,7 +83,7 @@
                                 </div>
                             
                             <%# Employee drop down menu %>
-                        <div class="row" style="margin-left: 1px">
+                            <div class="row" style="margin-left: 1px">
                                 <div class="col-md-4">
                                         <%= form.label :employee %>
                                         <%= form.select :employee, options_from_collection_for_select(Employee.all, "id", "first_name",  "last_name"), include_blank: "-None-" %>
@@ -96,7 +96,7 @@
                                 <%= form.text_area :report, class: 'form-control', rows: '6' %>
                             </div>
                         </div>
-                            </fieldset>
+                        </fieldset>
                     </div>
                     <!-- /FORM -->
 
