@@ -19,9 +19,9 @@ class InterventionController < ApplicationController
   @intervention.battery_id = params[:battery]
   @intervention.column_id = params[:column]
   @intervention.elevator_id = params[:elevator]
-  @intervention.result = params[:result]
+  @intervention.result = "Pending"
   @intervention.report = params[:report]
-  @intervention.status = params[:status]
+  @intervention.status = "Pending"
   @intervention.employee = nil
 
   if @intervention.save!
