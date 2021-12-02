@@ -112,7 +112,23 @@ $(document).ready(function() {
 var customer = function() {
   var choice = document.getElementById("customer").value;
   if (choice != 0) {
+    //I'm so sorry for this non DRY code, but I'm not changing it rn
     $(".building-class").show();
+    $(".battery-class").hide();
+    $(".column-class").hide();
+    $(".elevator-class").hide();
+		$("#battery").empty();
+		$("#column").empty();
+		$("#elevator").empty();
+  } else {
+    $(".building-class").hide();
+    $(".battery-class").hide();
+    $(".column-class").hide();
+    $(".elevator-class").hide();
+    $("#building").empty();
+		$("#battery").empty();
+		$("#column").empty();
+		$("#elevator").empty();
   }
 };
 
@@ -127,6 +143,18 @@ var building = function() {
   var choice = document.getElementById("building").value;
   if (choice != 0) {
     $(".battery-class").show();
+    $(".column-class").hide();
+    $(".elevator-class").hide();
+		$("#battery").empty();
+		$("#column").empty();
+		$("#elevator").empty();
+  } else {
+    $(".battery-class").hide();
+    $(".column-class").hide();
+    $(".elevator-class").hide();
+		$("#battery").empty();
+		$("#column").empty();
+		$("#elevator").empty();
   }
 };
 
@@ -141,6 +169,12 @@ var battery = function() {
   var choice = document.getElementById("battery").value;
   if (choice != 0) {
     $(".column-class").show();
+    $(".elevator-class").hide();
+    $("#elevator").empty();
+  } else {
+    $(".column-class").hide();
+    $(".elevator-class").hide();
+    $("#elevator").empty();
   }
 };
 
@@ -155,8 +189,8 @@ var column = function() {
   var choice = document.getElementById("column").value;
   if (choice != 0) {
     $(".elevator-class").show();
+  } else {
+    $(".elevator-class").hide();
   }
 };
 
-//resetting mechanism
-var reset = document.getElementById('customer').value
