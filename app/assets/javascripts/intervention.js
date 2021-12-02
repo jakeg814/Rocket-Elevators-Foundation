@@ -157,3 +157,6 @@ var column = function() {
     $(".elevator-class").show();
   }
 };
+
+//resetting mechanism
+var reset = document.getElementById('customer').value

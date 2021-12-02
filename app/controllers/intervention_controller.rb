@@ -25,6 +25,7 @@ class InterventionController < ApplicationController
   @intervention.employee = nil
 
   if @intervention.save!
+    create_intervention_ticket
     redirect_back fallback_location: root_path
   end
  end
@@ -102,5 +103,36 @@ class InterventionController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def intervention_params
     params.require(:intervention).permit( :author, :employee, :customer, :building, :battery, :column, :created_at, :updated_at, :elevator, :result, :report, :status)
+  end
+
+  #intervention zendesk
+  def create_intervention_ticket
+    client = ZendeskAPI::Client.new do |config|
+    config.url = ENV['ZENDESK_URL']
+    config.username = ENV['ZENDESK_USERNAME']
+    config.token = ENV['ZENDESK_TOKEN']
+  end
+  ZendeskAPI::Ticket.create!(client, 
+    :subject => "The user has requested an intervention for customer: #{Customer.find(params[:customer]).company_name} ", 
+    :comment => { 
+        :value => "The information for the customer that requires for an intervention is as follows:
+            Requester ID is: #{params[:author]}.
+            Customer is: #{Customer.find(params[:customer]).company_name}.
+            Building ID is: #{Building.find(params[:building]).id}. 
+            Battery ID is: #{Battery.find(params[:battery]).id}.
+            Column ID is: #{Column.find(params[:column]).id unless "null"}. 
+            Elevator ID is: #{Elevator.find(params[:elevator]).id unless "null"}.
+            The Employee to be assigned to the task is: #{Employee.find(params[:employee]).first_name + " " + Employee.find(params[:employee]).last_name }.
+            Request Description: #{params[:report]}. 
+            "
+          #  elevator and column should be able to be null
+    }, 
+    :requester => { 
+        "name": User.find(current_user.id).email
+        # "email": User.find(current_user.id).email,
+    },
+    :priority => "normal",
+    :type => "question",
+    )
   end
 end
