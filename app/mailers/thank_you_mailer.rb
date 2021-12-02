@@ -1,6 +1,6 @@
 class ThankYouMailer < ApplicationMailer
 
-    default :from => 'dominhan.nguyen@gmail.com'
+    default :from => 'jakegomez814@hotmail.com'
 
     # send a signup email to the user, pass in the user object that   contains the user's email address
     def send_thank_you_email(lead)
