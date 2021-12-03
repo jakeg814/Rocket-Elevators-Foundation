@@ -1,5 +1,68 @@
 # README
 
+##Week 9 Consolidation:
+
+## Project Description
+This week my task is to implement various concepts learned in the past 8 weeks to the Rocket Elevators Information System.
+
+#### Instructional Video
+This video gives a brief explanation of the process for using various APIs on our website.
+Link: <em>https://www.youtube.com/watch?v=-_hZ0M5t-WA</em>
+
+##Website Link: http://jakegelevatorstesting.com/
+
+##Rest API Link: https://jakerocket.azurewebsites.net/interventions
+##Rest API Repo: https://github.com/jakeg814/Rocket_Elevators_REST_API
+##Rest API instructions: 
+
+Retrieving a list of pending interventions: https://jakerocket.azurewebsites.net/interventions
+Change the status of a intervention to "InProgress" and add the start date of the intervention
+In Postman body: {"id": "1", "status": "InProgress" } method: PUT
+
+Change the status of a intervention to "Completed" and add the end date of the intervention
+In Postman body: {"id": "1", "status": "Completed" } method: PUT
+
+##GraphQL API Link: https://jakegapi.herokuapp.com/graphql
+##GraphQL API Repo: https://github.com/jakeg814/Rocket_Elevators_GraphQL_API
+##GraphQL API Instructions:
+
+Retrieving a list of pending interventions:
+```
+{
+ pending_interventions {
+ 	id
+	status
+	start_date
+	end_date
+ }
+}
+```
+Change the status of a intervention to "InProgress" and add the start date of the intervention
+
+```
+mutation {	
+	 update_intervention_start_date(id: 7) {
+		id
+		status
+		start_date
+		end_date
+	 }
+}
+```
+
+Change the status of a intervention to "Completed" and add the end date of the intervention
+```
+mutation {	
+	 update_intervention_end_date(id: 7) {
+		id
+		status
+		start_date
+		end_date
+	 }
+}
+```
+
+Original project info
 ## Project Description
 This week our task is to implement various APIs to add more features to our Rocket Elevator website.
 
