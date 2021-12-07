@@ -16,6 +16,11 @@ gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
 gem 'slack-notifier'
 gem 'starwars'
+
+## -- Week 10 TDD Gems -- ##
+gem 'rspec', '~> 3.0'
+
+
 ## -- API Section -- ##
 # Figaro API protection
 gem 'figaro'
