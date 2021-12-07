@@ -19,7 +19,7 @@ gem 'starwars'
 
 ## -- Week 10 TDD Gems -- ##
 gem 'rspec', '~> 3.0'
-
+gem 'webmock'
 
 ## -- API Section -- ##
 # Figaro API protection
@@ -33,8 +33,6 @@ gem 'addressy'
 # gem to convert addresses into lat/long
 gem 'geocoder'
 
-gem 'dropbox_api'
-
 # Bonus
 gem 'invisible_captcha'
 ## ----------------- ##
@@ -44,6 +42,7 @@ gem 'rails', '~> 5.2.6'
 # Use mysql2 as the database for Active Record
 gem 'mysql2', '~> 0.5'
 # Use Puma as the app server
+#Need to update to version 4.3.9 or later due to being vulnerable to HTTP request smuggling. See https://github.com/jakeg814/Rocket-Elevators-Foundation/security/dependabot/Gemfile.lock/puma/open for more details.
 gem 'puma', '~> 3.11'
 gem 'devise'
 # Use SCSS for stylesheets
