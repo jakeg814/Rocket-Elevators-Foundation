@@ -17,10 +17,6 @@ gem 'sendgrid-actionmailer'
 gem 'slack-notifier'
 gem 'starwars'
 
-## -- Week 10 TDD Gems -- ##
-gem 'rspec', '~> 3.0'
-gem 'webmock'
-
 ## -- API Section -- ##
 # Figaro API protection
 gem 'figaro'
@@ -77,6 +73,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  ## -- Week 10 TDD Gems -- ##
+  gem 'rspec', '~> 3.0'
+  gem 'webmock'
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
+
 end
 
 group :development do
