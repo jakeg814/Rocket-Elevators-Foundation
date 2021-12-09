@@ -5,8 +5,8 @@ require 'rails_helper'
      driven_by(:rack_test)
    end
 
-  pending "add some scenarios (or delete) #{__FILE__}"
-  it 'saves and displays the resulting leads form' do
+  pending "somebody fills out the Contact Us form with their information and hits send. The file location is: #{__FILE__}"
+  it 'sends the resulting leads form' do
     #Someone visits the home page
     visit '/'
 
@@ -21,20 +21,20 @@ require 'rails_helper'
     #Click on the submit button
     click_on 'SEND MESSAGE'
 
-    expect(page).to have_content('Rick Roll')
-    expect(page).to have_content('richardroll@hotmail.com')
-    expect(page).to have_content('tester testers')
-    expect(page).to have_content('big test')
-    expect(page).to have_content('I am describing the project here')
-    expect(page).to have_content('Hey, you\'re doing awesome today :)')
+    expect(page).to have_content('Full Name *')
+    expect(page).to have_content('E-mail Address *')
+    expect(page).to have_content('Business Name *')
+    expect(page).to have_content('Project Name *')
+    expect(page).to have_content('Project Description *')
+    expect(page).to have_content('Message *')
 
     #Confirm that the leads form appears on the screen
     form = Lead.order("id").last
-    expect(form.lead_full_name).to eq('richardroll@hotmail.com')
-    expect(form.lead_email).to eq('Hello, I say!')
-    expect(form.lead_company_name).to eq('tester testers')
-    expect(form.lead_project_name).to eq('big test')
-    expect(form.lead_project_description).to eq('I am describing the project here')
-    expect(form.lead_message).to eq('Hey, you\'re doing awesome today :)')
+    expect(form.full_name).to eq('Rick Roll')
+    expect(form.email).to eq('richardroll@hotmail.com')
+    expect(form.company_name).to eq('tester testers')
+    expect(form.project_name).to eq('big test')
+    expect(form.project_description).to eq('I am describing the project here')
+    expect(form.message).to eq('Hey, you\'re doing awesome today :)')
   end
  end
