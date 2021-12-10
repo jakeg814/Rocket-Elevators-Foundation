@@ -28,7 +28,7 @@ require 'rails_helper'
     expect(page).to have_content('Project Description *')
     expect(page).to have_content('Message *')
 
-    #Confirm that the leads form appears on the screen
+    #
     form = Lead.order("id").last
     expect(form.full_name).to_not be_nil
     expect(form.email).to_not be_nil
@@ -36,6 +36,7 @@ require 'rails_helper'
     expect(form.project_name).to_not be_nil
     expect(form.project_description).to_not be_nil
     expect(form.message).to_not be_nil
+    #Confirm that the leads form appears on the screen
     # expect(form.full_name).to eq('Richard Roll')
     # expect(form.email).to eq('richardroll@hotmail.com')
     # expect(form.company_name).to eq('tester testers')
