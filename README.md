@@ -10,6 +10,10 @@ In rails, run the following command in order to test with RSPEC and see the resu
 ```
 bin/rspec --format doc
 ```
+Directories for the files changed are in:
+Rocket-Elevators-Foundation/spec/
+and 
+Rocket-Elevators-Foundation/lib/
 
 ##Week 9 Consolidation:
 
