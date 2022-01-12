@@ -81,6 +81,7 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.16)
+    bcrypt_pbkdf (1.1.0)
     bindex (0.8.1)
     bootsnap (1.9.1)
       msgpack (~> 1.0)
@@ -145,6 +146,7 @@ GEM
     dropbox_api (0.1.20)
       faraday (~> 1.0)
       oauth2 (~> 1.1)
+    ed25519 (1.2.4)
     equalizer (0.0.11)
     erubi (1.10.0)
     execjs (2.8.1)
@@ -440,6 +442,7 @@ PLATFORMS
 DEPENDENCIES
   addressy
   aws-sdk-polly
+  bcrypt_pbkdf (~> 1.1)
   bootsnap (>= 1.1.0)
   bootstrap (~> 5.1.0)
   bootstrap-sass (~> 3.4.1)
@@ -453,6 +456,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dropbox_api
+  ed25519 (~> 1.2, >= 1.2.4)
   faker!
   figaro
   font-awesome-rails
